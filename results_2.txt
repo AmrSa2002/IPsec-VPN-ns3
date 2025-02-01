@@ -1,0 +1,146 @@
+[0/2] Re-checking globbed directories...
+ninja: no work to do.
+Place seed used: 45378 51372 28479
+Connect seed used: 18934 30518 10496
+Edge conn seed used: 28333 14202 53578
+Grouping seed used: 46047 56240 40697
+Assigment seed used: 52045 41222 23084
+Bandwidth seed used: 29671 59418 51132
+Parsing Top-down hierarchical model...
+Parsing AS BarabasiAlbert model...
+Parsing Router waxman model...
+Creating TD model...
+Generating Top Down hierarchical topology...
+Placing nodes...
+Interconnecting nodes...
+Assigning bandwidths...
+Generating 1th Router/level topology...
+Placing Nodes...
+HT Node placement...
+Number of nodes placed: 20
+done!
+Interconnecting Nodes...
+growth model: G_INCR...
+Assigning bandwidths...
+Generating 2th Router/level topology...
+Placing Nodes...
+HT Node placement...
+Number of nodes placed: 20
+done!
+Interconnecting Nodes...
+growth model: G_INCR...
+Assigning bandwidths...
+Flattening topology...
+Size of Flattened topology: 40
+Interconnecting Border routers...
+Topology is connected!!!
+Place seed stored: 53802 14114 37862
+Connect seed stored: 33859 25614 11011
+Edge Connect seed stored: 28333 14202 53578
+Grouping seed used: 46047 56240 40697
+Assignment seed stored: 52045 41222 23084
+Bandwidth seed stored: 41647 35680 30918
+Number of AS created 2
+UdpEchoServerApplication:UdpEchoServer(0x5acb2a193b20)
+UdpEchoClientApplication:UdpEchoClient(0x5acb2a194070)
+UdpEchoClientApplication:SetDataSize(0x5acb2a194070, 1024)
+AnimationInterface WARNING:Node:0 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:1 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:2 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:3 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:4 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:5 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:6 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:7 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:8 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:9 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:10 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:11 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:12 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:13 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:14 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:15 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:16 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:17 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:18 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:19 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:20 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:21 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:22 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:23 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:24 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:25 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:26 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:27 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:28 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:29 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:30 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:31 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:32 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:33 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:34 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:35 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:36 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:37 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:38 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:39 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:40 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:41 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:0 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:1 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:2 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:3 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:4 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:5 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:6 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:7 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:8 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:9 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:10 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:11 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:12 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:13 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:14 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:15 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:16 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:17 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:18 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:19 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:20 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:21 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:22 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:23 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:24 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:25 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:26 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:27 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:28 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:29 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:30 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:31 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:32 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:33 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:34 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:35 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:36 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:37 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:38 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:39 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:40 Does not have a mobility model. Use SetConstantPosition if it is stationary
+AnimationInterface WARNING:Node:41 Does not have a mobility model. Use SetConstantPosition if it is stationary
+UdpEchoServerApplication:StartApplication(0x5acb2a193b20)
+UdpEchoClientApplication:StartApplication(0x5acb2a194070)
+UdpEchoClientApplication:ScheduleTransmit(0x5acb2a194070, +0ns)
+UdpEchoClientApplication:Send(0x5acb2a194070)
+At time +2s client sent 1024 bytes to 10.2.0.1 port 9
+UdpEchoServerApplication:HandleRead(0x5acb2a193b20, 0x5acb2a22d500)
+At time +2.0464s server received 1024 bytes from 10.1.0.1 port 49153
+Echoing packet
+At time +2.0464s server sent 1024 bytes to 10.1.0.1 port 49153
+UdpEchoClientApplication:HandleRead(0x5acb2a194070, 0x5acb2a22ddc0)
+At time +2.0928s client received 1024 bytes from 10.2.0.1 port 9
+UdpEchoClientApplication:StopApplication(0x5acb2a194070)
+UdpEchoServerApplication:StopApplication(0x5acb2a193b20)
+UdpEchoClientApplication:~UdpEchoClient(0x5acb2a194070)
+UdpEchoServerApplication:~UdpEchoServer(0x5acb2a193b20)
+Done!

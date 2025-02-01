@@ -1,0 +1,10 @@
+[0/2] Re-checking globbed directories...
+ninja: no work to do.
+Paket 0 Delay (N2->N1): 0.02096   Delay (N3->N2): 0.02396 
+Paket 1 Delay (N2->N1): 0.04192   Delay (N3->N2): 0.04792 
+Paket 2 Delay (N2->N1): 0.06288   Delay (N3->N2): 0.07188 
+Paket 3 Delay (N2->N1): 0.08384   Delay (N3->N2): 0.09584 
+Paket 4 Delay (N2->N1): 0.1048   Delay (N3->N2): 0.1198 
+Sent (bytes):	5000	Receivede (bytes):	5000
+Sent (Packets):	10	Received (Packets):	10
+Ratio (bytes):	1	Ratio (packets):	1

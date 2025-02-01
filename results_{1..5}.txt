@@ -1,0 +1,21 @@
+[0/2] Re-checking globbed directories...
+ninja: no work to do.
+Invalid command-line argument: --broj={1..5}
+brite-generic-example [Program Options] [General Arguments]
+
+Program Options:
+    --confFile:  BRITE conf file [src/brite/examples/conf_files/TD_ASBarabasi_RTWaxman.conf]
+    --tracing:   Enable or disable ascii tracing [false]
+    --nix:       Enable or disable nix-vector routing [false]
+    --broj:      broj [1]
+
+General Arguments:
+    --PrintGlobals:              Print the list of globals.
+    --PrintGroups:               Print the list of groups.
+    --PrintGroup=[group]:        Print all TypeIds of group.
+    --PrintTypeIds:              Print all TypeIds.
+    --PrintAttributes=[typeid]:  Print all attributes of typeid.
+    --PrintVersion:              Print the ns-3 version.
+    --PrintHelp:                 Print this help message.
+
+Command 'build/scratch/ns3.42-brite-generic-example-default --broj={1..5}' returned non-zero exit status 1.

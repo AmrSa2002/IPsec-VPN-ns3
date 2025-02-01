@@ -1,0 +1,23 @@
+# Build folderovi
+build/
+cmake-build-debug/
+cmake-build-release/
+
+# Backup fajlovi
+*.bak
+*.tmp
+
+# Editor i IDE fajlovi
+.vscode/
+.idea/
+*.swp
+
+# Ostali privremeni fajlovi
+*.log
+*.cache
+
+# Rezultati simulacija (možda veliki fajlovi)
+results/
+
+# Očuvaj scratch folder, ali bez privremenih fajlova
+scratch/*.tmp
