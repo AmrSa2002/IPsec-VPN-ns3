@@ -21,3 +21,5 @@ results/
 
 # Očuvaj scratch folder, ali bez privremenih fajlova
 scratch/*.tmp
+*.gch
+cmake-cache/
