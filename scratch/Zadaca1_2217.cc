@@ -39,6 +39,13 @@
 #include "ns3/netanim-module.h"
 #include "ns3/flow-monitor-helper.h"
 #include <chrono>
+#include "ns3/ipv4-flow-classifier.h"
+
+
+#include <sys/resource.h>
+#include <sys/time.h>
+
+
 
 using namespace ns3;
 
@@ -104,10 +111,12 @@ ReceivedPacket(std::string context, Ptr<const Packet> p, const Address& addr){
         // Ovo je tok između čvorova N2 i N1
         std::cout << "Paket " << p->GetUid()/2 
                   << " Delay (N2->N1): " << temp_time1 << "  ";
+                        std::cout << "\n";
     } else if (context.find("NodeList/2/") != std::string::npos) {
         // Ovo je tok između čvorova N3 i N2
         temp_time2=temp_time2+(temp-i->second);
-        std::cout << " Delay (N3->N2): " << temp_time2 << " \n";
+        std::cout << "        Delay (N3->N2): " << temp_time2 << " \n";
+              std::cout << "\n";
     }
     //std::cout << p->GetUid() << "\t" << temp_time << "\n";
     //Remove the entry from the delayTable to clear the RAM memory and obey memory leakage
@@ -130,7 +139,14 @@ Ratio(){
     << "\nRatio (bytes):\t" << (float)m_bytes_received/(float)m_bytes_sent
     << "\tRatio (packets):\t" << (float)m_packets_received/(float)m_packets_sent << "\n";
 }
- 
+
+void PrintCPUUsage() {
+    struct rusage usage;
+    getrusage(RUSAGE_SELF, &usage);
+    std::cout << "CPU Time (User): " << usage.ru_utime.tv_sec + usage.ru_utime.tv_usec / 1e6 << " s\n";
+    std::cout << "CPU Time (System): " << usage.ru_stime.tv_sec + usage.ru_stime.tv_usec / 1e6 << " s\n";
+}
+
 int
 main (int argc, char *argv[])
 {
@@ -139,13 +155,12 @@ auto start = std::chrono::high_resolution_clock::now();
   LogComponentEnable ("UdpEchoServerApplication", LOG_LEVEL_ALL); 
   //LogComponentEnable ("UdpL4Protocol", LOG_LEVEL_ALL); 
   //LogComponentEnable ("SptmClient", LOG_LEVEL_ALL);
-  //LogComponentEnable ("AhTagApp", LOG_LEVEL_ALL);
+  LogComponentEnable ("SPTMExample", LOG_LEVEL_ALL);
   //LogComponentEnable ("AHProtocol", LOG_LEVEL_ALL);
-  //LogComponentEnable ("AHHeader", LOG_LEVEL_ALL);
 //LogComponentEnable ("UDPHeader", LOG_LEVEL_ALL);
   Packet::EnablePrinting(); 
   PacketMetadata::Enable ();
-  //bool enableFlowMonitor = true;
+  bool enableFlowMonitor = false;
   bool      enablePcap = true;
   double    simulationTime = 300;  
   double    numberOfNodes = 4;  
@@ -157,15 +172,16 @@ auto start = std::chrono::high_resolution_clock::now();
   
   CommandLine cmd; 
   cmd.AddValue ("simulationTime", "simulationTime", simulationTime); 
+  cmd.AddValue("EnableMonitor", "Enable Flow Monitor", enableFlowMonitor);
   cmd.Parse (argc, argv);
  
   //
   // Explicitly create the nodes required by the topology (shown above).
   //
-  NS_LOG_INFO ("Prije kreiranja nodova");
+ // NS_LOG_INFO ("Prije kreiranja nodova");
   NodeContainer nodes;
   nodes.Create (numberOfNodes); 
-  NS_LOG_INFO ("Poslije kreiranja nodova");
+  // NS_LOG_INFO ("Poslije kreiranja nodova");
   MobilityHelper mobility;
     // setup the grid itself: objects are laid out
     // started from (-100,-100) with 20 objects per row,
@@ -193,7 +209,7 @@ auto start = std::chrono::high_resolution_clock::now();
   //mobility.SetMobilityModel("ns3::ConstantPositionMobilityModel");
   //mobility.Install(nodes);
 
- NS_LOG_INFO ("Prije kreiranja kontejnera");
+ // NS_LOG_INFO ("Prije kreiranja kontejnera");
   NodeContainer n2n0 = NodeContainer (nodes.Get (2), nodes.Get (0));
   NodeContainer n1n0 = NodeContainer (nodes.Get (1), nodes.Get (0));
   NodeContainer n0n3 = NodeContainer (nodes.Get (0), nodes.Get (3));
@@ -205,9 +221,9 @@ auto start = std::chrono::high_resolution_clock::now();
   internet.Install (nodes);
   
 
-NS_LOG_INFO ("Nakon kreiranja interneta");
+// NS_LOG_INFO ("Nakon kreiranja interneta");
   // We create the channels first without any IP addressing information
-  NS_LOG_INFO ("Create channels.");
+  // NS_LOG_INFO ("Create channels.");
   PointToPointHelper p2p1;
   p2p1.SetDeviceAttribute ("DataRate", StringValue (rate));
   p2p1.SetChannelAttribute ("Delay", StringValue (lat1));
@@ -220,7 +236,7 @@ NS_LOG_INFO ("Nakon kreiranja interneta");
   NetDeviceContainer d0d3 = p2p2.Install (n0n3);
   
   // Add IP addresses.
-  NS_LOG_INFO ("Assign IP Addresses.");
+  // NS_LOG_INFO ("Assign IP Addresses.");
   Ipv4AddressHelper ipv4;
   ipv4.SetBase ("10.1.1.0", "255.255.255.0");
   Ipv4InterfaceContainer i2i0 = ipv4.Assign (d2d0);
@@ -231,7 +247,7 @@ NS_LOG_INFO ("Nakon kreiranja interneta");
   ipv4.SetBase ("10.1.3.0", "255.255.255.0");
   Ipv4InterfaceContainer i0i3 = ipv4.Assign (d0d3);
 
-  NS_LOG_INFO ("Enable static global routing.");
+  // NS_LOG_INFO ("Enable static global routing.");
   //
   // Turn on global static routing so we can actually be routed across the network.
   //
@@ -255,14 +271,15 @@ NS_LOG_INFO ("Nakon kreiranja interneta");
       std::cout << "Sender and reaciver address on N3->N2 link \n";
       std::cout << "  sender IP address:   " << i0i3.GetAddress (0) << "\n";
       std::cout << "  receiver IP address:   " << i2i0.GetAddress (0) << "\n";
-
+      std::cout << "\n";
+      
       SptmClientHelper sptmClient1 ("ns3::UdpSocketFactory", InetSocketAddress (i1i0.GetAddress (0), port1));
       sptmClient1.SetAttribute("MaxPackets", UintegerValue (5));
-      sptmClient1.SetAttribute("PacketSize", UintegerValue (150));
-      sptmClient1.SetAttribute("AHEnable", UintegerValue (0));
+      sptmClient1.SetAttribute("PacketSize", UintegerValue (100));
+      sptmClient1.SetAttribute("AHEnable", UintegerValue (1));
       
-     SptmClientHelper sptmClient2 ("ns3::UdpSocketFactory", InetSocketAddress (i2i0.GetAddress (0), port2));
-      sptmClient2.SetAttribute("PacketSize", UintegerValue (150));
+      SptmClientHelper sptmClient2 ("ns3::UdpSocketFactory", InetSocketAddress (i2i0.GetAddress (0), port2));
+      sptmClient2.SetAttribute("PacketSize", UintegerValue (100));
 
       ApplicationContainer apps1 = sptmClient1.Install (nodes.Get (2));
       apps1.Start (Seconds (15.0));
@@ -288,7 +305,7 @@ NS_LOG_INFO ("Nakon kreiranja interneta");
   }
   Config::Connect("/NodeList/*/ApplicationList/*/$ns3::SptmClient/Tx", MakeCallback(&SentPacket)); 
   Config::Connect("/NodeList/*/ApplicationList/*/$ns3::SptmSink/Rx", MakeCallback(&ReceivedPacket));
- AnimationInterface anim("anim.xml");
+  AnimationInterface anim("anim.xml");
  
   if(enablePcap){
     p2p1.EnablePcapAll ("sptm_logAmr1"); 
@@ -298,12 +315,6 @@ NS_LOG_INFO ("Nakon kreiranja interneta");
   //
   // Now, do the actual simulation.
   // 
-  // Flow Monitor
-  //FlowMonitorHelper flowmonHelper;
-  //if (enableFlowMonitor)
-  //{
-    // flowmonHelper.InstallAll();
-  //}
         
   // Run the simulator
   Simulator::Stop (Seconds (simulationTime));
@@ -312,16 +323,11 @@ NS_LOG_INFO ("Nakon kreiranja interneta");
   if(enableApplication) {
       Ratio();
   }
-  //if (enableFlowMonitor)
-    //{
-      //  flowmonHelper.SerializeToXmlFile("izlaz", false, false);
-   // }
+  std::cout << "\n";
+  PrintCPUUsage();
 
   //Finally print the graphs 
   Simulator::Destroy();
   Names::Clear(); 
-  auto end = std::chrono::high_resolution_clock::now();
-std::chrono::duration<double> elapsed = end - start;
-NS_LOG_INFO("Vreme obrade: " << elapsed.count() << " sekundi");
+  
 }
-
